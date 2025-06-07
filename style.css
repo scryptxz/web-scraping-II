@@ -13,13 +13,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #181818;
+  background-color: #20181f;
   color: #fff;
 }
 
 h1 {
-  color: #d1170e;
-  font-weight: 600;
+  color: #c662ff;
+  font-weight: 500;
   font-size: 1.5rem;
   text-align: center;
   margin: 20px 20px;
@@ -27,9 +27,8 @@ h1 {
 
 button {
   border: none;
-  background-color: #fff;
-  color: #d1170e;
-  font-size: 1.2rem;
+  background-color: #ae27ff;
+  color: #fff;
   padding: 1px 15px;
   border-radius: 5px;
   display: block;
@@ -37,7 +36,7 @@ button {
 }
 
 button:hover {
-  background-color: #ddd;
+  background-color: #7d19b8;
   transition: 100ms;
 }
 
@@ -65,8 +64,8 @@ li {
 }
 
 li:hover {
-  border: 1px solid rgba(255, 0, 0, 1);
-  background-color: #202020;
+  border: 1px solid #ae27ff;
+  background-color: #271d26;
 }
 
 .song-info > img {
@@ -100,6 +99,7 @@ li:hover {
 
 span {
   white-space: preserve nowrap;
+  color: rgb(255, 255, 255, 0.5);
 }
 
 #loading {

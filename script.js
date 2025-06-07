@@ -56,10 +56,10 @@ function extractSongs(doc) {
     li.append(span2);
 
     if (timestamp === "Em scrobble no momento") {
-      li.style.backgroundColor = "#251a1a"
-      span.style.color = "#e66060"
+      li.style.backgroundColor = "rgb(174, 39, 255, 0.05)"
+      span.style.color = "#ae27ff"
       span.style.fontWeight = "600"
-      span2.style.color = "#e66060"
+      span2.style.color = "#ae27ff"
       span2.style.fontWeight = "600"
     }
   });
