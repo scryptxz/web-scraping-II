@@ -65,13 +65,12 @@ function extractSongs(doc) {
   });
   const loadingP = document.querySelector("#loading");
   loadingP.style.display = "none"
-  songsUL.style.display = "flex"
 }
 
 async function fetchWebsite() {
   const songsUL = document.querySelector(".songs-list");
   const loadingP = document.querySelector("#loading");
-  songsUL.style.display = "none"
+  songsUL.innerHTML = ""
   loadingP.style.display = "block"
   loadingP.innerHTML = "Carregando...";
   const dom = new DOMParser();
