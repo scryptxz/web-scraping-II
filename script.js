@@ -37,13 +37,9 @@ function extractSongs(doc) {
     img.src = songImage;
     console.log(timestamp);
     span.innerText =
-      timestamp === "Em scrobble no momento"
-        ? "Escutando agora..."
-        : timestamp
+      timestamp === "Em scrobble no momento" ? "Escutando agora..." : timestamp;
     span2.innerText =
-      timestamp === "Em scrobble no momento"
-        ? "Escutando agora..."
-        : timestamp
+      timestamp === "Em scrobble no momento" ? "Escutando agora..." : timestamp;
 
     // Append em cada elemento
     songsUL.appendChild(li);
@@ -56,22 +52,28 @@ function extractSongs(doc) {
     li.append(span2);
 
     if (timestamp === "Em scrobble no momento") {
-      li.style.backgroundColor = "rgb(174, 39, 255, 0.07)"
-      span.style.color = "#c662ff"
-      span.style.fontWeight = "600"
-      span2.style.color = "#c662ff"
-      span2.style.fontWeight = "600"
+      li.style.backgroundColor = "rgb(174, 39, 255, 0.07)";
+      span.style.color = "#c662ff";
+      span.style.fontWeight = "600";
+      span2.style.color = "#c662ff";
+      span2.style.fontWeight = "600";
     }
   });
   const loadingP = document.querySelector("#loading");
-  loadingP.style.display = "none"
+  loadingP.style.display = "none";
+
+  const btnMostrar = document.querySelector("#mostrar-btn");
+  btnMostrar.style.display = "block";
 }
 
 async function fetchWebsite() {
+  const btnMostrar = document.querySelector("#mostrar-btn");
+  btnMostrar.style.display = "none";
+
   const songsUL = document.querySelector(".songs-list");
   const loadingP = document.querySelector("#loading");
-  songsUL.innerHTML = ""
-  loadingP.style.display = "block"
+  songsUL.innerHTML = "";
+  loadingP.style.display = "block";
   loadingP.innerHTML = "Carregando...";
   const dom = new DOMParser();
   try {
