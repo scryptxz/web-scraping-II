@@ -25,6 +25,7 @@ function extractSongs(doc) {
 
     const img = document.createElement("img");
     const span = document.createElement("span");
+    const span2 = document.createElement("span");
 
     songInfo.className = "song-info";
     titleArtist.className = "title-artist";
@@ -39,6 +40,10 @@ function extractSongs(doc) {
       timestamp === "Em scrobble no momento"
         ? "Escutando agora..."
         : timestamp
+    span2.innerText =
+      timestamp === "Em scrobble no momento"
+        ? "Escutando agora..."
+        : timestamp
 
     // Append em cada elemento
     songsList.appendChild(li);
@@ -47,22 +52,25 @@ function extractSongs(doc) {
     songInfo.appendChild(titleArtist);
     titleArtist.appendChild(h2);
     titleArtist.appendChild(p);
-    li.appendChild(span);
+    titleArtist.appendChild(span);
+    li.append(span2);
 
     if (timestamp === "Em scrobble no momento") {
       li.style.backgroundColor = "#251a1a"
       span.style.color = "#e66060"
       span.style.fontWeight = "600"
+      span2.style.color = "#e66060"
+      span2.style.fontWeight = "600"
     }
   });
-
   const loadingP = document.querySelector("#loading");
-  document.body.removeChild(loadingP);
+  loadingP.innerHTML = ""
 }
 
 async function fetchWebsite() {
   const songsUL = document.querySelector(".songs-list");
   const loadingP = document.querySelector("#loading");
+  songsUL.innerHTML = ""
   loadingP.innerHTML = "Carregando...";
   const dom = new DOMParser();
   try {

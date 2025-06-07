@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
   margin: 0;
@@ -22,7 +22,7 @@ h1 {
   font-weight: 600;
   font-size: 1.5rem;
   text-align: center;
-  margin-top: 20px;
+  margin: 20px 20px;
 }
 
 button {
@@ -33,7 +33,6 @@ button {
   padding: 1px 15px;
   border-radius: 5px;
   display: block;
-  margin-top: 20px;
   cursor: pointer;
 }
 
@@ -62,6 +61,7 @@ li {
   padding: 10px 20px;
   border-radius: 10px;
   transition: 300ms;
+  overflow: hidden;
 }
 
 li:hover {
@@ -75,21 +75,47 @@ li:hover {
   vertical-align: middle;
 }
 
+.song-info {
+  white-space: nowrap;
+}
+
 .title-artist {
   display: inline-block;
   vertical-align: middle;
   margin-left: 20px;
+  white-space: nowrap;
 }
 
 .title-artist h2 {
   font-weight: bold;
-  font-size: 1.2rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 400px;
 }
 
 .title-artist p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+}
+
+span {
+  white-space: preserve nowrap;
 }
 
 #loading {
-    margin-top: 25px;
+  margin-top: 25px;
+}
+
+.title-artist span {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  li > span {
+    display: none;
+  }
+  .title-artist span {
+    display: block;
+    font-size: 0.8rem;
+  }
 }
