@@ -3,7 +3,7 @@ function extractSongs(doc) {
     "#recent-tracks-section > table > tbody > .chartlist-row"
   );
 
-  const songsList = document.body.querySelector(".songs-list");
+  const songsUL = document.body.querySelector(".songs-list");
 
   songs.forEach((el) => {
     // Pegando os elementos do last.fm
@@ -46,7 +46,7 @@ function extractSongs(doc) {
         : timestamp
 
     // Append em cada elemento
-    songsList.appendChild(li);
+    songsUL.appendChild(li);
     li.appendChild(songInfo);
     songInfo.appendChild(img);
     songInfo.appendChild(titleArtist);
@@ -56,7 +56,7 @@ function extractSongs(doc) {
     li.append(span2);
 
     if (timestamp === "Em scrobble no momento") {
-      li.style.backgroundColor = "rgb(174, 39, 255, 0.1)"
+      li.style.backgroundColor = "rgb(174, 39, 255, 0.07)"
       span.style.color = "#c662ff"
       span.style.fontWeight = "600"
       span2.style.color = "#c662ff"
@@ -64,13 +64,15 @@ function extractSongs(doc) {
     }
   });
   const loadingP = document.querySelector("#loading");
-  loadingP.innerHTML = ""
+  loadingP.style.display = "none"
+  songsUL.style.display = "flex"
 }
 
 async function fetchWebsite() {
   const songsUL = document.querySelector(".songs-list");
   const loadingP = document.querySelector("#loading");
-  songsUL.innerHTML = ""
+  songsUL.style.display = "none"
+  loadingP.style.display = "block"
   loadingP.innerHTML = "Carregando...";
   const dom = new DOMParser();
   try {
