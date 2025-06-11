@@ -1,4 +1,4 @@
-function extractSongs(doc) {
+function extrairMusicas(doc) {
   const songs = doc.querySelectorAll(
     "#recent-tracks-section > table > tbody > .chartlist-row"
   );
@@ -75,18 +75,19 @@ async function fetchWebsite() {
   songsUL.innerHTML = "";
   loadingP.style.display = "block";
   loadingP.innerHTML = "Carregando...";
-  const dom = new DOMParser();
-  try {
-    const lastFmFetch = await fetch(
-      "https://corsproxy.io/?url=https://www.last.fm/pt/user/scryptrg"
-    );
-    const lastFmText = await lastFmFetch.text();
-    const lastFmDOM = dom.parseFromString(lastFmText, "text/html");
-    extractSongs(lastFmDOM);
-  } catch (error) {
-    songsUL.innerHTML = "Ocorreu algum erro.";
-    console.error(error);
-  }
+  fetch("https://corsproxy.io/?url=https://www.last.fm/pt/user/scryptrg")
+    .then((res) => {
+      if (res.status != 200) throw new Error("Problemas no servidor");
+      return res.text();
+    })
+    .then((text) => {
+      let d = new DOMParser();
+      let doc = d.parseFromString(text, "text/html");
+      extrairMusicas(doc);
+    })
+    .catch((err) => {
+      songsUL.innerHTML = "Ocorreu algum erro.";
+    });
 }
 
 function main() {
