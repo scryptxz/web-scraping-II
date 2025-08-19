@@ -75,7 +75,7 @@ async function fetchWebsite() {
   songsUL.innerHTML = "";
   loadingP.style.display = "block";
   loadingP.innerHTML = "Carregando...";
-  fetch("https://corsproxy.io/?url=https://www.last.fm/pt/user/scryptrg")
+  fetch("https://corsproxy.io/?url=https://www.last.fm/pt/user/scryptxz")
     .then((res) => {
       if (res.status != 200) throw new Error("Problemas no servidor");
       return res.text();
